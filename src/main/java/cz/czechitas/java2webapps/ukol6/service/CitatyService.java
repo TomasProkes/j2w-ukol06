@@ -23,4 +23,19 @@ public class CitatyService {
     public String konkretniCitat(int cislo) {
         return citatyRepository.citat(cislo);
     }
+
+    public String nahodnyItCitat() {
+        int nahodnePoradi = 1 + nahodneCisloService.dejNahodneCislo(citatyRepository.pocet("it-quote"));
+        return citatyRepository.citat(nahodnePoradi, "it-quote");
+    }
+
+    public String nahodnySportovniCitat() {
+        int nahodnePoradi = 1 + nahodneCisloService.dejNahodneCislo(citatyRepository.pocet("sports-quote"));
+        return citatyRepository.citat(nahodnePoradi, "sports-quote");
+    }
+
+    public String nahodnyMurphyhoZakon() {
+        int nahodnePoradi = 1 + nahodneCisloService.dejNahodneCislo(citatyRepository.pocet("murphys-law"));
+        return citatyRepository.citat(nahodnePoradi, "murphys-law");
+    }
 }
